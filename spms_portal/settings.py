@@ -23,7 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure--((es%kpbnq(ldfl07^@xi3a82$%6bzb3nv3w=3@*2@(&at8sp'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 
@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'placement',
     'import_export',
     'accounts',
-    'rest_framework'
 ]
 
 MIDDLEWARE = [
