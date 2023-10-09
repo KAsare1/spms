@@ -28,3 +28,6 @@ class LoginForm(AuthenticationForm):
 
     def confirm_login_allowed(self, user):
         pass
+
+
+		

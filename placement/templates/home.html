@@ -61,10 +61,21 @@
     </div>
 
     <div class="col-sm-6">
-        <label for="id_Last_name">Last name:</label>  
+        <label for="id_Last_name" class="form-label">Last name:</label>  
           <input type="text" name="Last_name" class="form-control" maxlength="200" required id="id_Last_name">
         </div>
-    <div class="mb-3">
+
+        <div class="col-sm-6">
+        <label for="id_Enrolment_Type" class="form-label">Enrolment Type:</label>
+        <select name="Enrolment_Type" required="" id="id_Enrolment_Type" class="form-select">
+    <option value="" selected="">---------</option>
+    <option value="Regular">Regualar</option>
+    <option value="Fee paying">Fee Paying</option>
+    <option value="International">International</option>
+  </select>
+</div>
+
+    <div class="col-sm-6">
             <label for="id_email" class="form-label">Email:</label> 
             <input type="email" name="email" maxlength="254" required id="id_email" class="form-control">
         </div>
@@ -959,6 +970,8 @@
 
 <input type="submit" value="Submit" class="btn btn-primary">
 </form>
+
+
 
 </body>
 </html>

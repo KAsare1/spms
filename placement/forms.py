@@ -7,7 +7,8 @@ class MyForm(forms.ModelForm):
     
     fields = {'ID_number',    
               "First_name",
-              "Last_name",   
+              "Last_name",
+              "Enrolment_Type",   
               "email",        
               "Program_type_1",
               "Program_type_2",

@@ -4,7 +4,7 @@ from import_export.admin import ImportExportModelAdmin
 # Register your models here.
 
 class PlacementAdmin(ImportExportModelAdmin, admin.ModelAdmin):
-    list_display = ['user', 'ID_number', 'First_name', 'Last_name', 'email', 'Program_1', 'Program_2','Program_3',"RESULTS","DCIT101",      
+    list_display = ['user', 'ID_number', 'First_name', 'Last_name', 'Enrolment_Type','email', 'Program_1', 'Program_2','Program_3',"RESULTS","DCIT101",      
               "DCIT102",      
               "DCIT103",      
               "DCIT104",      

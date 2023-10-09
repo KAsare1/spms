@@ -7,6 +7,12 @@ PROGRAM_TYPE =(
     ("Combined_Major", "Combined Major"),
 )
 
+ENROLMENT_TYPE=(
+    ("Regular", "Regular"),
+    ("Fee paying", "Fee Paying"),
+    ("International", "International")
+)
+
 GRADES =(
     ("N/A","N/A"),
     ("A","A"),
@@ -80,6 +86,7 @@ class Student_Choices(models.Model):
     ID_number = models.IntegerField() 
     First_name = models.CharField(max_length=200)
     Last_name = models.CharField(max_length=200)
+    Enrolment_Type = models.CharField(choices=ENROLMENT_TYPE, max_length=200)
     user = models.ForeignKey(User, on_delete=models.CASCADE, default=1)
     email = models.EmailField()
     Program_type_1 = models.CharField(choices=PROGRAM_TYPE, max_length=200)
