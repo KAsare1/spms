@@ -104,7 +104,7 @@
           <select name="Program_type_2" required id="id_Program_type_2" class="form-select">
       <option value="" selected="">---------</option>
     
-      <option value="Single_Major" selected>Single Major</option>
+      <option value="Single_Major">Single Major</option>
     
       <option value="Major_Minor">Major-Minor</option>
     
@@ -129,7 +129,7 @@
 
   <option value="Single_Major">Single Major</option>
 
-  <option value="Major_Minor" selected>Major-Minor</option>
+  <option value="Major_Minor">Major-Minor</option>
 
   <option value="Combined_Major">Combined Major</option>
 </select>
@@ -172,19 +172,19 @@
       <input type="file" name="RESULTS" id="id_RESULTS" class="form-control"> 
     </div>
 
-    {% comment %} <script>
+    <script>
         Swal.fire(
         'Good job!',
         'You placement form was submitted successfully!',
         'success'
       )
-      </script> {% endcomment %}
+      </script>
 
       <hr class="my-3">
       <h5>Choose Your Program of Study to Show Affiliated Courses</h5>
 
       <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
-<input id="showFields1" type="radio"class="btn-check" checked autocomplete="off">
+<input id="showFields1" type="radio"class="btn-check" autocomplete="off">
 <label class="btn btn-outline-primary" for="showFields1">Physical Sciences</label>
 
 <input id="showFields2" type="radio" class="btn-check" autocomplete="off">
@@ -572,9 +572,10 @@
 </div>
       
 
-<div class="col-md-6">
 {% comment %} mathematical science {% endcomment %}
 <div id="fieldsSet2">
+    
+<div class="col-md-6">
 <label for="id_DCIT102">DCIT102:</label>
 
 <select name="DCIT102" id="id_DCIT102" class="form-select">
@@ -712,14 +713,15 @@
 
 </select>
 </div>
-</div>
+
 
 
 
 
 {% comment %} physical science {% endcomment %}
-<div class="col-md-6">
+
 <div id="fieldsSet1" style="display: none;">
+    <div class="col-md-6">
 <label for="id_EASC104">EASC104:</label>
       
       <select name="EASC104" id="id_EASC104" class="form-select">
@@ -955,7 +957,7 @@
     });
 </script>
 
-<input type="submit" value="Submit">
+<input type="submit" value="Submit" class="btn btn-primary">
 </form>
 
 </body>

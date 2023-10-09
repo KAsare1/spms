@@ -22,9 +22,12 @@ def index(request):
 
 @login_required
 def placement_save(request):
-  form = MyForm(request.POST, request.FILES)
-  if form.is_valid():
-    print(request.POST)
-    print('hello world')
-    form.save()
+  if request.method == 'POST':
+    form = MyForm(request.POST, request.FILES)
+    if form.is_valid():
+      print(request.POST)
+      print('hello world')
+      form.save()
+  else:
+    form = MyForm()
   return render(request=request, template_name='home.html', context={'form': form})
