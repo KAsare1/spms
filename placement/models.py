@@ -119,4 +119,4 @@ class Student_Choices(models.Model):
     EASC101 = models.CharField(max_length=100, choices=GRADES, default='N/A')
     EASC104 = models.CharField(max_length=100, choices=GRADES, default='N/A')
     EASC106 = models.CharField(max_length=100, choices=GRADES, default='N/A')
-    RESULTS = models.FileField( upload_to='', null=True, blank=True)
+    RESULTS = models.FileField( upload_to='')
