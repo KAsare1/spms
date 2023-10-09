@@ -1,6 +1,962 @@
-<form method="post" enctype="multipart/form-data">
+<html lang="en" webcrx="">
+  <head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <style>
+    /* Hide the form by default */
+    #existingForm {
+        display: none;
+    }
+</style>
+  <link crossorigin="anonymous" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script crossorigin="anonymous" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4" src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  
+
+  <title>SPMS Placement</title>
+
+</head>
+<body>
+  
+    <div class="py-5 text-center">
+    <img class="d-block mx-auto mb-4" src="https://upload.wikimedia.org/wikipedia/commons/6/64/University_of_Ghana.png" alt="" width="72" height="70">
+    <h2>Placement Form</h2>
+    </div>
+    <div class="container py-5">
+    <div class="row g-5">
+      <div class="col-md-5 col-lg-4 order-md-last">
+    
+        <ul class="list-group mb-3">
+          <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">
+                    <span class="text-primary">IMPORTANT INSTRUCTIONS</span>
+                    <span class="badge bg-primary rounded-pill">!</span>
+                  </h5>
+              <p class="card-text">
+                </p><p>1. ONLY Students admitted into BSc MATHEMATICAL & PHYSICAL SCIENCES are required to complete this form.</p>
+            <p> 2. Students are advised to carefully read the manual contained in the link below before completing this form.</p>
+            <p>3. COMPLETING THIS FORM DOES NOT BY ANY MEANS CONFIRM YOUR PLACEMENT INTO YOUR PREFERRED PROGRAMME. Final PLACEMENTS will be confirmed and published by the office of the various heads of departments within the School of Physical and Mathematical Sciences.</p>
+              <p></p>
+              <a href="https://drive.google.com/file/d/1b2d0m6GRuVRcqICKROeS8hIYNbJDosJ_/view?usp=sharing" class="btn btn-primary">Students' Manual</a>
+            </div>
+          </div>
+        </ul>
+      </div>
+
+      <div class="col-md-7 col-lg-8">
+        <h4 class="mb-3">Personal Information</h4>
+      <div class="container">
+          <div class="row my-5">
+              <div class="col-md-12">
+<form method="post" enctype="multipart/form-data" id='myform'>
     {% csrf_token %}
-    {{ form }}
-    <input type="submit" value="Submit">
+    <div class="row g-3">
+        <div class="col-sm-6">
+        <label for="id_First_name">First name:</label>
+      <input type="text" name="First_name" class="form-control" maxlength="200" required id="id_First_name">
+    </div>
+
+    <div class="col-sm-6">
+        <label for="id_Last_name">Last name:</label>  
+          <input type="text" name="Last_name" class="form-control" maxlength="200" required id="id_Last_name">
+        </div>
+    <div class="mb-3">
+            <label for="id_email" class="form-label">Email:</label> 
+            <input type="email" name="email" maxlength="254" required id="id_email" class="form-control">
+        </div>
+
+
+    <div class="mb-3">
+        <label for="id_ID_number" class="form-label">ID number:</label>
+      <input type="number" name="ID_number"  required id="id_ID_number" class="form-control">
+    </div>
+</div>
+
+<hr class="my-4">
+<h4 class="mb-3">Program Selection and Transcript upload</h4>
+
+<div class="row gy-3">
+    <h6>First Choice</h6>
+    <div class="col-md-6">
+    <label for="id_Program_type_1" class="form-label">Program type 1:</label></th>
+    <select name="Program_type_1" required id="id_Program_type_1" class="form-select">
+  <option value="">---------</option>
+  <option value="Single_Major">Single Major</option>
+  <option value="Major_Minor">Major-Minor</option>
+  <option value="Combined_Major">Combined Major</option>
+</select>
+</div>
+
+<div class="col-md-6">
+    <label for="id_Program_1" class="form-label">Program 1:</label>
+    <select name="Program_1" required id="id_Program_1" class="form-select">
+      <option value="">---------</option>
+    </select>
+    </div>
+
+    <h6>Second Choice</h6>
+    <div class="col-md-6">
+        <label for="id_Program_type_2" class="form-label">Program type 2:</label>  
+          <select name="Program_type_2" required id="id_Program_type_2" class="form-select">
+      <option value="" selected="">---------</option>
+    
+      <option value="Single_Major" selected>Single Major</option>
+    
+      <option value="Major_Minor">Major-Minor</option>
+    
+      <option value="Combined_Major">Combined Major</option>
+    
+    </select>
+    </div>
+
+    <div class="col-md-6">
+        <label class="form-label" for="id_Program_2">Program 2:</label>
+          
+          <select name="Program_2" required id="id_Program_2" class="form-select">
+      <option value="">---------</option>
+    </select>
+    </div>  
+
+    <h6>Third Choice</h6>
+<div class="col-md-6">
+<label for="id_Program_type_3" class="form-label">Program type 3:</label>
+    <select name="Program_type_3" required id="id_Program_type_3" class="form-control">
+  <option value="">---------</option>
+
+  <option value="Single_Major">Single Major</option>
+
+  <option value="Major_Minor" selected>Major-Minor</option>
+
+  <option value="Combined_Major">Combined Major</option>
+</select>
+</div>
+
+<div class="col-md-6">
+    <label for="id_Program_3" class="form-label">Program 3:</label>  
+      <select name="Program_3" required id="id_Program_3" class="form-select">
+  <option value="">---------</option>
+</select>
+</div>  
+
+
+<script>
+    var ProgramChoice3 = {
+    Single_Major:["Actuarial Science", "Applied Geology", "Applied Geophysics", "Biomathematics", "Chemistry", "Computer Science", "Geology", "Geophysics", "Information Technology", "Mathematics", "Physics", "Statistics"],
+    Major_Minor:["Computer Science with Mathematics", "Computer Science with Physics", "Computer Science with Statistics","Geology with Physics", "Geology with Mathematics", "Mathematics with Computer Science", "Mathematics with Physics","Mathematics with Statistics","Mathematics with Geology","Physics with Computer Science","Physics with Geology","Physics with Mathematics","Statistics with Computer Science","Statistics with Mathematics", "Physics with Statistics"],
+    Combined_Major:["Chemistry and a Biological Science programme"," Chemistry and Physics","Computer Science and Mathematics"," Computer Science and Statistics"," Computer Science and Physics"," Mathematics and Statistics"," Physics and Mathematics","Physics and Statistics"]
+  }
+  var main3 = document.getElementById("id_Program_type_3");
+  var sub3 = document.getElementById('id_Program_3');
+  
+  main3.addEventListener('change', function(){
+    var selected_option3 = ProgramChoice3[this.value];
+  
+    while(sub3.options.length > 0){
+      sub3.options.remove(0);
+    }
+    Array.from(selected_option3).forEach(function(el){
+      let option = new Option(el, el);
+  
+      sub3.appendChild(option);
+    })
+  })
+  </script>
+  
+
+  <div class="mb-3">
+    <label for="id_RESULTS"  class="form-label">RESULTS:</label>
+      <input type="file" name="RESULTS" id="id_RESULTS" class="form-control"> 
+    </div>
+
+    {% comment %} <script>
+        Swal.fire(
+        'Good job!',
+        'You placement form was submitted successfully!',
+        'success'
+      )
+      </script> {% endcomment %}
+
+      <hr class="my-3">
+      <h5>Choose Your Program of Study to Show Affiliated Courses</h5>
+
+      <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+<input id="showFields1" type="radio"class="btn-check" checked autocomplete="off">
+<label class="btn btn-outline-primary" for="showFields1">Physical Sciences</label>
+
+<input id="showFields2" type="radio" class="btn-check" autocomplete="off">
+<label class="btn btn-outline-primary" for="showFields2" >Mathematical Sciences</label>
+</div>
+
+
+
+      
+
+
+<script>
+    var ProgramChoice = {
+    Single_Major:["Actuarial Science", "Applied Geology", "Applied Geophysics", "Biomathematics", "Chemistry", "Computer Science", "Geology", "Geophysics", "Information Technology", "Mathematics", "Physics", "Statistics"],
+    Major_Minor:["Computer Science with Mathematics", "Computer Science with Physics", "Computer Science with Statistics","Geology with Physics", "Geology with Mathematics", "Mathematics with Computer Science", "Mathematics with Physics","Mathematics with Statistics","Mathematics with Geology","Physics with Computer Science","Physics with Geology","Physics with Mathematics","Statistics with Computer Science","Statistics with Mathematics", "Physics with Statistics"],
+    Combined_Major:["Chemistry and a Biological Science programme"," Chemistry and Physics","Computer Science and Mathematics"," Computer Science and Statistics"," Computer Science and Physics"," Mathematics and Statistics"," Physics and Mathematics","Physics and Statistics"]
+  }
+  var main = document.getElementById("id_Program_type_2");
+  var sub = document.getElementById('id_Program_2');
+  
+  main.addEventListener('change', function(){
+    var selected_option = ProgramChoice[this.value];
+  
+    while(sub.options.length > 0){
+      sub.options.remove(0);
+    }
+    Array.from(selected_option).forEach(function(el){
+      let option = new Option(el, el);
+  
+      sub.appendChild(option);
+    })
+  })
+  </script>
+  
+  
+  <script>
+    var ProgramChoice1 = {
+    Single_Major:["Actuarial Science", "Applied Geology", "Applied Geophysics", "Biomathematics", "Chemistry", "Computer Science", "Geology", "Geophysics", "Information Technology", "Mathematics", "Physics", "Statistics"],
+    Major_Minor:["Computer Science with Mathematics", "Computer Science with Physics", "Computer Science with Statistics","Geology with Physics", "Geology with Mathematics", "Mathematics with Computer Science", "Mathematics with Physics","Mathematics with Statistics","Mathematics with Geology","Physics with Computer Science","Physics with Geology","Physics with Mathematics","Statistics with Computer Science","Statistics with Mathematics", "Physics with Statistics"],
+    Combined_Major:["Chemistry and a Biological Science programme"," Chemistry and Physics","Computer Science and Mathematics"," Computer Science and Statistics"," Computer Science and Physics"," Mathematics and Statistics"," Physics and Mathematics","Physics and Statistics"]}
+  var main1 = document.getElementById("id_Program_type_1");
+  var sub1 = document.getElementById('id_Program_1');
+  
+  main1.addEventListener('change', function(){
+    var selected_option1 = ProgramChoice1[this.value];
+  
+    while(sub1.options.length > 0){
+      sub1.options.remove(0);
+    }
+    Array.from(selected_option1).forEach(function(el){
+      let option = new Option(el, el);
+  
+      sub1.appendChild(option);
+    })
+  })
+  </script>
+
+  <div class="row gy-3">
+    <div class="col-md-6">
+    
+  <label for="id_DCIT101">DCIT101:</label>
+      
+    <select name="DCIT101" id="id_DCIT101" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+    
+
+    <div class="col-md-6">
+<label for="id_MATH122">MATH122:</label>
+      
+      <select name="MATH122" id="id_MATH122" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>    
+
+<div class="col-md-6">
+<label for="id_PHYS106">PHYS106:</label>
+    
+    <select name="PHYS106" id="id_PHYS106" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+
+
+<div class="col-md-6">
+<label for="id_DCIT104">DCIT104:</label>
+      
+    <select name="DCIT104" id="id_DCIT104" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+
+    
+<div class="col-md-6">
+<label for="id_MATH123">MATH123:</label>
+      <select name="MATH123" id="id_MATH123" class="form-select"> 
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>
+
+<div class="col-md-6">
+   <label for="id_PHYS143">PHYS143:</label>
+        
+      <select name="PHYS143" id="id_PHYS143" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>
+      
+<div class="col-md-6">
+ <label for="id_MATH126">MATH126:</label>
+      <select name="MATH126" id="id_MATH126" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>
+      
+
+<div class="col-md-6">
+    <label for="id_PHYS144">PHYS144:</label>
+      
+      <select name="PHYS144" id="id_PHYS144" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>
+
+
+
+<div class="col-md-6">
+<label for="id_ABCS101">ABCS101:</label>
+      <select name="ABCS101" id="id_ABCS101" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>
+      
+
+<div class="col-md-6">
+    <label for="id_PHYS105">PHYS105:</label>
+      <select name="PHYS105" id="id_PHYS105" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>
+      
+<div class="col-md-6">
+<label for="id_MATH121">MATH121:</label>
+      
+      <select name="MATH121" id="id_MATH121" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>  
+      
+<div class="col-md-6">
+<label for="id_BOTN104">BOTN104:</label>
+    
+<select name="BOTN104" id="id_BOTN104" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+</select>
+
+</div>
+      
+
+<div class="col-md-6">
+{% comment %} mathematical science {% endcomment %}
+<div id="fieldsSet2">
+<label for="id_DCIT102">DCIT102:</label>
+
+<select name="DCIT102" id="id_DCIT102" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>
+
+   
+<div class="col-md-6">
+<label for="id_DCIT103">DCIT103:</label>
+      
+<select name="DCIT103" id="id_DCIT103" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>
+
+<div class="col-md-6">
+<label for="id_STAT111">STAT111:</label>  
+  <select name="STAT111" id="id_STAT111" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div> 
+
+
+<div class="col-md-6">
+<label for="id_ECON101">ECON101:</label>
+  
+  <select name="ECON101" id="id_ECON101" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+
+
+
+<div class="col-md-6">
+<label for="id_STAT112">STAT112:</label>
+    
+      
+<select name="STAT112" id="id_STAT112" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+</div>
+
+
+
+
+{% comment %} physical science {% endcomment %}
+<div class="col-md-6">
+<div id="fieldsSet1" style="display: none;">
+<label for="id_EASC104">EASC104:</label>
+      
+      <select name="EASC104" id="id_EASC104" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+</select>
+</div>
+
+<div class="col-md-6">
+<label for="id_EASC101">EASC101:</label>
+  <select name="EASC101" id="id_EASC101" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+
+<div class="col-md-6">
+<label for="id_EASC106">EASC106:</label>
+      <select name="EASC106" id="id_EASC106" class="form-select">
+  <option value="N/A" selected>N/A</option>
+
+  <option value="A">A</option>
+
+  <option value="B+">B+</option>
+
+  <option value="B">B</option>
+
+  <option value="C+">C+</option>
+
+  <option value="C">C</option>
+
+  <option value="D+">D+</option>
+
+  <option value="D">D</option>
+
+  <option value="E">E</option>
+
+  <option value="F">F</option>
+
+</select>
+</div>
+
+
+<div class="col-md-6">
+<label for="id_CHEM114">CHEM114:</label>
+    
+<select name="CHEM114" id="id_CHEM114" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+
+<div class="col-md-6">
+<label for="id_CHEM122">CHEM122:</label>
+  
+  <select name="CHEM122" id="id_CHEM122" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+<div class="col-md-6">
+<label for="id_CHEM120">CHEM120:</label>
+  
+  <select name="CHEM120" id="id_CHEM120" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+
+
+<div class="col-md-6">
+<label for="id_CHEM113">CHEM113:</label>
+    
+    <select name="CHEM113" id="id_CHEM113" class="form-select">
+<option value="N/A" selected>N/A</option>
+
+<option value="A">A</option>
+
+<option value="B+">B+</option>
+
+<option value="B">B</option>
+
+<option value="C+">C+</option>
+
+<option value="C">C</option>
+
+<option value="D+">D+</option>
+
+<option value="D">D</option>
+
+<option value="E">E</option>
+
+<option value="F">F</option>
+
+</select>
+</div>
+</div>
+</div>
+<script>
+    document.getElementById('showFields1').addEventListener('click', function() {
+        document.getElementById('fieldsSet1').style.display = 'block';
+        document.getElementById('fieldsSet2').style.display = 'none';
+    });
+
+    document.getElementById('showFields2').addEventListener('click', function() {
+        document.getElementById('fieldsSet1').style.display = 'none';
+        document.getElementById('fieldsSet2').style.display = 'block';
+    });
+</script>
+
+<script>
+    // Function to show the selected form and hide the other form
+    function toggleFormVisibility(selectedFormId, otherFormId) {
+        var selectedForm = document.getElementById(selectedFormId);
+        var otherForm = document.getElementById(otherFormId);
+
+        selectedForm.style.display = "block";
+        otherForm.style.display = "none";
+    }
+
+    // Add click event listeners to the buttons to toggle form visibility
+    var showForm1Button = document.getElementById("showForm1Button");
+    showForm1Button.addEventListener("click", function () {
+        toggleFormVisibility("form1", "form2");
+    });
+
+    var showForm2Button = document.getElementById("showForm2Button");
+    showForm2Button.addEventListener("click", function () {
+        toggleFormVisibility("form2", "form1");
+    });
+</script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('myform');
+        const radioButtons = document.querySelectorAll('input[type="radio"]');
+        
+        radioButtons.forEach(function(radioButton) {
+            radioButton.addEventListener('click', function(event) {
+                event.preventDefault(); // Prevent form submission
+                // Handle the radio button click here if needed
+            });
+        });
+    });
+</script>
+
+<input type="submit" value="Submit">
 </form>
-{{ form.errors }}
+
+</body>
+</html>
