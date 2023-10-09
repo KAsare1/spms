@@ -1,6 +1,5 @@
 <html><head>
 
-    head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="canonical" href="https://getbootstrap.com/docs/5.0/examples/sign-in/">
@@ -27,30 +26,45 @@
     <!-- Custom styles for this template -->
     <link href="signin.css" rel="stylesheet">
   </head>
-</head><body class="text-center"><form method="post">
+<body class="text-center">
+    <div class="container py-5">
+        <main class="form-signin">
+    <form method="post">
     {% csrf_token %}
     <img class="mb-4" src="https://upload.wikimedia.org/wikipedia/commons/6/64/University_of_Ghana.png" alt="" width="75" height="80">
     <h1 class="h3 mb-3 fw-normal">Login</h1>
 
-    <label for="id_username">Student's ID</label>
+    <div id="div_id_username" class="form-floating"> 
+      
+      <input type="text" class="form-control" placeholder="Student's ID" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
+      
+    </div>
     
-      
-      <input type="text" name="username" autofocus="" autocapitalize="none" autocomplete="username" maxlength="150" required="" id="id_username">
-      
-      
-    
-  
+    <br>
 
   
-    <label for="id_password">Password:</label>
-    
-      
-      <input type="password" name="password" autocomplete="current-password" required="" id="id_password">
-      
+    <div id="div_id_password" class="form-floating"> 
+      <input type="password" placeholder="Password" name="password" autocomplete="current-password" required="" id="id_password" class="form-control">
+    </div>
       
         
-      
+    <br>
     
   
-    <input type="submit" value="Submit">
-</form></body></html>
+    <input type="submit" value="Submit" class="w-100 btn btn-lg btn-primary">
+</form>
+</main>
+<p class="text-center">Don't have an account? <a onclick="supge()"> <FONT COLOR="BLUE">Create Account</FONT></a>.</p>
+</div>
+
+<script>
+    function supge(a, b) { 
+      a = history.back();
+      b = location.href = "/accounts/register/";
+      return a
+      return b
+     }
+  </script>
+
+</body>
+</html>
