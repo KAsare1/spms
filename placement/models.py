@@ -64,7 +64,8 @@ PROGRAMMES =(
 ("Computer Science and Physics","Computer Science and Physics"),
 ("Mathematics and Statistics","Mathematics and Statistics"),
 ("Physics and Mathematics","Physics and Mathematics"),
-("Physics and Statistics","Physics and Statistics")
+("Physics and Statistics","Physics and Statistics"),
+("Actuarial Science and Mathematics","Actuarial Science and Mathematics")
 )
 
 
